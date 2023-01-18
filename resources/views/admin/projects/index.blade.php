@@ -2,5 +2,7 @@
 
 @section('content')
     <h1>Elenco Progetti</h1>
-    @dump($project)
-@endsection
+    @foreach ($projects as $project)
+        <h3>{{$project->name}}</h3>
+    @endforeach
+    @endsection
