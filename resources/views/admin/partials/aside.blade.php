@@ -1,5 +1,5 @@
 <aside>
-
+    <a class="text-light" href="{{route('admin.projects.index')}}">Go</a>
 </aside>
 
 <style>

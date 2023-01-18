@@ -3,7 +3,7 @@
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Guest\PageController;
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\Admin\ProjectController;
 use App\Models\Project;
 use Illuminate\Support\Facades\Route;
 
