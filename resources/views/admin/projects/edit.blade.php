@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <form action="{{route('admin.projects.update', $project)}}" method="POST">
+    <form action="{{route('admin.projects.update', $project)}}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
         <div class="mb-3">
@@ -18,8 +18,17 @@
         </div>
         <div class="mb-3">
             <label for="cover_image" class="form-label">cover_image</label>
-            <input type="text" class="form-control" id="cover_image" name="cover_image" value="{{old('cover_image', $project->cover_image)}}" placeholder="cover_image..">
+            <input onchange="showImage(event)" type="file" class="form-control" id="cover_image" name="cover_image" value="{{old('cover_image', $project->cover_image)}}" placeholder="cover_image..">
+            <div>
+                <img width="300" id="image_thumb_edit" src=" {{asset('storage/' . $project['image']) }} " alt="">
+            </div>
         </div>
         <button type="submit" class="btn btn-outline-success">Invia</button>
     </form>
+    <script>
+        function showImage(event) {
+            const tagImage = document.getElementById('image_thumb_edit');
+            tagImage.src = URL.createObjectURL(event.target.files[0]);
+        }
+    </script>
 @endsection

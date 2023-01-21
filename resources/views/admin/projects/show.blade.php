@@ -13,7 +13,7 @@
 
 
     <div class="card text-center" style="width: 18rem;">
-        <img src="..." class="card-img-top" alt="{{$project->name}}">
+        <img src="{{asset('storage/' . $project['cover_image'])}}" class="card-img-top" alt="{{$project->name}}">
         <div class="card-body">
           <h5 class="card-title">{{$project->name}}</h5>
           <p class="card-text">{{$project->summary}}</p>

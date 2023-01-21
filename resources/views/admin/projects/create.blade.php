@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <form action="{{route('admin.projects.store')}}" method="POST">
+    <form action="{{route('admin.projects.store')}}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="mb-3">
             <label for="name" class="form-label">Name</label>
@@ -17,8 +17,17 @@
         </div>
         <div class="mb-3">
             <label for="cover_image" class="form-label">cover_image</label>
-            <input type="text" class="form-control" id="cover_image" name="cover_image" placeholder="cover_image..">
+            <input onchange="showImage(event)" type="file" class="form-control" id="cover_image" name="cover_image" placeholder="cover_image..">
+            <div>
+                <img width="300" id="image_thumb" src="  " alt="">
+            </div>
         </div>
         <button type="submit" class="btn btn-outline-success">Invia</button>
     </form>
+    <script>
+        function showImage(event) {
+            const tagImage = document.getElementById('image_thumb');
+            tagImage.src = URL.createObjectURL(event.target.files[0]);
+        }
+    </script>
 @endsection
