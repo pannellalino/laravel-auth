@@ -9,7 +9,6 @@
     @endif
 
 <div class="container d-flex justify-content-center pt-5">
-    @dump($project_data)
 
 
     <div class="card text-center" style="width: 18rem;">
