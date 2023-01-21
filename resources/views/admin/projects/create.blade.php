@@ -3,6 +3,7 @@
 @section('content')
     <form action="{{route('admin.projects.store')}}" method="POST" enctype="multipart/form-data">
         @csrf
+
         <div class="mb-3">
             <label for="name" class="form-label">Name</label>
             <input type="text" class="form-control" id="name" name="name" placeholder="name..">
@@ -24,6 +25,7 @@
         </div>
         <button type="submit" class="btn btn-outline-success">Invia</button>
     </form>
+
     <script>
         function showImage(event) {
             const tagImage = document.getElementById('image_thumb');

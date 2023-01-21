@@ -41,6 +41,7 @@ class ProjectController extends Controller
     {
         $project_data = $request->all();
 
+
         if(array_key_exists('cover_image', $project_data)) {
             $project_data['image_original_name'] = $request->file('cover_image')->getClientOriginalName();
 
@@ -53,6 +54,7 @@ class ProjectController extends Controller
         $new_project->fill($project_data);
         $new_project->save();
 
+        dd($project_data);
         return redirect()->route('admin.projects.show',$new_project)->with('message','Progetto creato correttamente');
     }
 
